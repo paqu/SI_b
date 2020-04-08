@@ -84,7 +84,6 @@ public class FileServer {
     }
     private static void handleDirectory(File dir, HttpExchange exchange) throws IOException{
         byte [] result;
-
         String subDir = getSubDir(BASE_DIRECTORY, dir.getCanonicalPath());
         StringBuilder template = new StringBuilder();
         template.append("<!DOCTYPE html>\n");
@@ -136,7 +135,7 @@ public class FileServer {
         int len =  dirLen - baseLen;
 
         if (len >- 0) {
-            return dirPath.substring(dirLen - len + 1, dirLen);
+            return "/" + dirPath.substring(dirLen - len + 1, dirLen);
         } else return "";
     }
 }
